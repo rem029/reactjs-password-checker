@@ -15,13 +15,15 @@ const useInput = (initialValue = '') => {
   const [response, setResponse] = useState(initialResponse);
 
   const onValueChange = async (value = '') => {
-    if (!value) setResponse({ ...initialResponse });
+    if (!value) setResponse((_) => ({ ...initialResponse }));
     setValue(value);
     const apiResponse = await password.get(value);
-    if (apiResponse) setResponse({ ...apiResponse });
+    if (apiResponse) setResponse((_) => ({ ...apiResponse }));
   };
 
-  const toggleShowPassword = () => [setShowPassword((currentValue) => !currentValue)];
+  const toggleShowPassword = () => [
+    setShowPassword((currentValue) => !currentValue),
+  ];
 
   return { value, onValueChange, toggleShowPassword, showPassword, response };
 };

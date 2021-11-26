@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 const InputGuessTime = ({ text = '', time = 0, currentStrength = 0 }) => {
   const textColor = useMemo(() => {
