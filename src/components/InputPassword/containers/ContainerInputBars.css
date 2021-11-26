@@ -1,0 +1,12 @@
+.container-password-bars {
+  grid-area: bars;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
+
+  width: 100%;
+  height: fit-content;
+  gap: 8px;
+}

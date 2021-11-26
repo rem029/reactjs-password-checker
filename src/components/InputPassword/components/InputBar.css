@@ -1,0 +1,19 @@
+.input-bars {
+  flex-grow: 1;
+  height: 8px;
+  background-color: grey;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.bars-weak {
+  background-color: red;
+}
+
+.bars-medium {
+  background-color: yellow;
+}
+
+.bars-strong {
+  background-color: greenyellow;
+}

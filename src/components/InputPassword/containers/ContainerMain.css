@@ -1,0 +1,13 @@
+.container-password-main {
+  display: grid;
+  grid-template-areas:
+    'input'
+    'bars'
+    'warning'
+    'guessTime'
+    'suggestions';
+
+  width: 100%;
+  max-width: 480px;
+  gap: 16px;
+}

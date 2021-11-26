@@ -1,0 +1,17 @@
+.container-password-input {
+  grid-area: input;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-flow: row nowrap;
+
+  width: 100%;
+  overflow: hidden;
+
+  border: 2px solid grey;
+  border-radius: 8px;
+
+  padding: 0 8px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,11 @@
+.container-password-suggestions {
+  grid-area: suggestions;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+
+  width: 100%;
+  gap: 8px;
+}
