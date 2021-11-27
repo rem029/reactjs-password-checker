@@ -3,6 +3,7 @@
   grid-template-areas:
     'input'
     'bars'
+    'loading'
     'error'
     'warning'
     'guessTime'

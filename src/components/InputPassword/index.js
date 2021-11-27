@@ -33,7 +33,9 @@ const InputPassword = () => {
         currentStrength={response.score}
         passwordLength={value.length}
       />
-      {loading && <p>Checking strength... Please wait.</p>}
+      {loading && (
+        <p style={{ gridArea: 'loading' }}>Checking strength... Please wait.</p>
+      )}
       <InputError text={error} />
       <InputGuessTime
         text={response.guessTimeString}
