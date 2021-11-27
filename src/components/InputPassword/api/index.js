@@ -8,7 +8,7 @@ export const password = {
 
     try {
       if (!process.env.REACT_APP_PASSWORD_API_URL)
-        throw new Error('Internal error. URL not found.');
+        throw new Error('Internal error. ');
 
       const response = await axios.post(
         process.env.REACT_APP_PASSWORD_API_URL,
@@ -22,7 +22,7 @@ export const password = {
       return { ...returnResponse };
     } catch (error) {
       returnResponse.success = false;
-      returnResponse.data = { ...error.response?.data } || error.message;
+      returnResponse.data = error.response || error.message;
       return { ...returnResponse };
     }
   },

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { password } from '../api/';
 
 const initialResponse = {
-  score: 0,
+  score: -1,
   guessTimeSeconds: 0,
   guessTimeString: '',
   suggestions: [],
@@ -30,15 +30,17 @@ const useInput = (initialValue = '') => {
     const getResponse = async () => {
       setLoading(true);
       const apiResponse = await password.get(value);
-      console.log('apiResponse', apiResponse.data);
+
       setLoading(false);
       if (apiResponse.success)
         return setResponse((_) => ({ ...apiResponse.data }));
 
-      if (!apiResponse.success) return setError(apiResponse.data);
+      setResponse((_) => ({ ...initialResponse }));
+      setError(apiResponse.data);
     };
 
     const timeOutId = setTimeout(() => {
+      setError('');
       if (!hasValue) return setResponse((_) => ({ ...initialResponse }));
       getResponse();
     }, 800);

@@ -2,7 +2,11 @@ import { useMemo } from 'react';
 import './InputBar.css';
 import ContainerInputBars from '../containers/ContainerInputBars.jsx';
 
-const InputBars = ({ maxStrength = 4, currentStrength = 0, passwordLength = 0 }) => {
+const InputBars = ({
+  maxStrength = 4,
+  currentStrength = -1,
+  passwordLength = 0,
+}) => {
   const barsCount = useMemo(() => {
     return new Array(maxStrength).fill();
   }, [maxStrength]);
