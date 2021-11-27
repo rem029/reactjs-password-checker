@@ -2,17 +2,28 @@ import axios from 'axios';
 
 export const password = {
   get: async (passwordValue) => {
-    if (!passwordValue.length > 0) return null;
-    if (!process.env.REACT_APP_PASSWORD_API_URL) return null;
+    let returnResponse = { success: false, data: {} };
+
+    if (!passwordValue.length > 0) return { success: false, data: '' };
 
     try {
-      const response = await axios.post(process.env.REACT_APP_PASSWORD_API_URL, {
-        password: passwordValue,
-      });
+      if (!process.env.REACT_APP_PASSWORD_API_URL)
+        throw new Error('Internal error. URL not found.');
 
-      return response.data;
+      const response = await axios.post(
+        process.env.REACT_APP_PASSWORD_API_URL,
+        {
+          password: passwordValue,
+        }
+      );
+
+      returnResponse.success = true;
+      returnResponse.data = { ...response.data };
+      return { ...returnResponse };
     } catch (error) {
-      return error;
+      returnResponse.success = false;
+      returnResponse.data = { ...error.response?.data } || error.message;
+      return { ...returnResponse };
     }
   },
 };
