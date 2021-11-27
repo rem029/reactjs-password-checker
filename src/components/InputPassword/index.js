@@ -11,12 +11,12 @@ import useInput from './hooks/useInput.js';
 const InputPassword = () => {
   const {
     value,
-    onValueChange,
-    toggleShowPassword,
-    showPassword,
     response,
     error,
     loading,
+    showPassword,
+    onValueChange,
+    toggleShowPassword,
   } = useInput('');
 
   return (
